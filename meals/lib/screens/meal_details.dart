@@ -14,7 +14,6 @@ class MealDetailsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final meals = ref.watch(favoriteMealProvider);
     final bool isFavoriteMeal = meals.contains(meal);
-    print(isFavoriteMeal);
     return Scaffold(
         appBar: AppBar(
           title: Text(meal.title),
