@@ -32,8 +32,28 @@ class MealDetailsScreen extends ConsumerWidget {
                   ),
                 );
               },
-              icon:
-                  Icon(isFavoriteMeal ? Icons.favorite : Icons.favorite_border),
+              icon: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child, animation) {
+                  return SizeTransition(
+                    sizeFactor: animation,
+                    axis: Axis.vertical,
+                    axisAlignment: -.5,
+                    child: child,
+                  );
+                  /*RotationTransition(
+                    turns: Tween<double>(
+                      begin: 0.8,
+                      end: 1.0,
+                    ).animate(animation),
+                    child: child,
+                  ); */
+                },
+                child: Icon(
+                  isFavoriteMeal ? Icons.favorite : Icons.favorite_border,
+                  key: ValueKey(isFavoriteMeal),
+                ),
+              ),
             )
           ],
         ),
